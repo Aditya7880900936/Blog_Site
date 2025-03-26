@@ -4,7 +4,7 @@ const app = express();
 const userRouter = require("./routes/user");
 const mongoose = require("mongoose");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
