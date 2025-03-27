@@ -3,6 +3,8 @@ const multer = require("multer");
 const path = require("path");
 const router = Router();
 const Blog = require("../models/blog");
+const User = require("../models/user");
+
 
 
 const storage = multer.diskStorage({
@@ -25,7 +27,7 @@ router.get("/add-new",(req,res)=>{
 })
 
 router.get("/:id", async (req,res)=>{
-    const blog = await Blog.findById(req.params.id);
+    const blog = await Blog.findById(req.params.id).populate("createdBy");
     return res.render("blog",{
         user: req.user,
         blog: blog,
