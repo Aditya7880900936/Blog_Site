@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const path = require("path");
 const app = express();
@@ -12,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 
 
 mongoose
-  .connect("mongodb://localhost:27017/blogify")
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("Connected to MongoDB");
   })
